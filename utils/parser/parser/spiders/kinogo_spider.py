@@ -54,6 +54,9 @@ class KinogoSpider(scrapy.Spider):
         duration = ""
         poster = f"""https://kinogo-net.la{response.css("img[itemprop='image']").xpath("@src").get()}"""
         players = [i.xpath("@src").get().strip() for i in response.css("iframe")]
+        countries = []
+        description = response.css("span[itemprop='description']").xpath("text()").get().replace("<br>", "\n")
+        genres = []
 
         yield {
             "name": name,

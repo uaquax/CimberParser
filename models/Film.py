@@ -1,3 +1,5 @@
+from loguru import logger
+
 import json
 from dataclasses import dataclass
 
@@ -24,6 +26,9 @@ class Film:
                     film[8], json.loads(film[9]))
 
     def from_json(film: dict):
-        return Film(film["name"], int(film["year"]), film["description"], film["countries"],
-                    film["duration"], film["genres"], film["poster"], Language.Russian,
-                    film["players"])
+        try:
+            return Film(film["name"], int(film["year"]), film["description"], film["countries"],
+                        film["duration"], film["genres"], film["poster"], Language.Russian,
+                        film["players"])
+        except Exception as e:
+            logger.error(str(e))
