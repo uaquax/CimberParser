@@ -22,7 +22,7 @@ class IO:
     def print_menu() -> int:
         while True:
             Console(color_system="windows").print(
-                Panel.fit("1 - Check a website support.\n2 - Parse a website", title="Cimber Parser v1.0.0"))
+                Panel.fit("1 - Check a website support.\n2 - Parse a website", title="Cimber Parser v0.0.4"))
             result = IO.input("empty")
 
             try:
